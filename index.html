@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Simon</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+</head>
+
+<body>
+
+
+  <div class="rules blur-background scaling-div">
+    <p class="x-button">X</p>
+    <div class="the-rules">
+      <p>Press Enter to start the game.</p>
+      <p>Click the colored buttons in the correct sequence.</p>
+      <p>You can interact with the buttons by clicking or using the keyboard.</p>
+      <p>Press <strong>G</strong> for Green.</p>
+      <p>Press <strong>R</strong> for Red.</p>
+      <p>Press <strong>Y</strong> for Yellow.</p>
+      <p>Press <strong>B</strong> for Blue.</p>
+      <p>Press Enter to restart the game after the game is over.</p>
+    </div>
+  </div>
+
+  <div class="main-container">
+    <h1 id="level-title">Press Enter to Start</h1>
+
+    <div class="rules-button">
+      <p>RULES</p>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div type="button" id="green" class="btn green">
+          <p class="color">Green</p>
+        </div>
+        <div type="button" id="red" class="btn red">
+          <p class="color">Red</p>
+        </div>
+      </div>
+      <div class="row">
+        <div type="button" id="yellow" class="btn yellow">
+          <p class="color">Yellow</p>
+        </div>
+        <div type="button" id="blue" class="btn blue">
+          <p class="color">Blue</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <audio src="./sounds/blue.mp3" class="blue"></audio>
+  <audio src="./sounds/green.mp3" class="green"></audio>
+  <audio src="./sounds/red.mp3" class="red"></audio>
+  <audio src="./sounds/yellow.mp3" class="yellow"></audio>
+  <audio src="./sounds/wrong.mp3" class="wrong"></audio>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="./game.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+body {
+  text-align: center;
+  background-color: #011F3F;
+  margin: 0;
+  padding: 0;
+}
+
+#level-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3rem;
+  margin: 5% 0;
+  color: #FEF2BF;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  min-height: 90vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  margin: 0;
+  height: 220px;
+  width: 220px;
+  border: 10px solid black;
+  border-radius: 20%;
+  cursor: pointer;
+}
+
+.game-over {
+  background-color: red;
+  opacity: 0.8;
+}
+
+.red {
+  background-color: #B22222;
+}
+.red:hover {
+  transform: scale(1.09);
+}
+
+.green {
+  background-color: #228B22;
+}
+.green:hover {
+  transform: scale(1.09);
+}
+
+.blue {
+  background-color: #3B59A3;
+}
+.blue:hover {
+  transform: scale(1.09);
+}
+
+.yellow {
+  background-color: #D9C85C;
+}
+.yellow:hover {
+  transform: scale(1.09);
+}
+
+.pressed {
+  box-shadow: 0 0 20px white;
+  background-color: grey;
+  transform: scale(1.09);
+}
+
+.color {
+  font-family: 'Press Start 2P', cursive;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #FDF6E3;
+  margin: 90px 0 0;
+}
+
+.rules {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 15px;
+  color: #7c4a34;
+  text-align: left;
+  padding: 20px;
+  padding-left: 30px;
+  background-color: #f9f9f9;
+  border: 2px solid #7c4a34;
+  border-radius: 10px;
+  width: 30%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 170px;
+  left: 535px;
+  transform: translateX(-50%);
+  z-index: 1000;
+  visibility: hidden;
+  transition: opacity 1.5s ease, visibility 1s ease;
+  opacity: 0;
+}
+
+.rules-button {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  color: #7c4a34;
+  text-align: center;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 2px solid #7c4a34;
+  border-radius: 10px;
+  width: 6%;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.show-rules {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+.blur-background {
+    filter: blur(15px);
+    background: rgba(240, 240, 240, 0.1);
+    transition: filter 1s ease;
+}
+
+.x-button {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.the-rules {
+  margin-top: 35px;
+}
+
+@keyframes scaleUpDown {
+  0% {
+    transform: scale(0.99);
+  }
+  50% {
+    transform: scale(1.09);
+  }
+  100% {
+    transform: scale(0.99);
+  }
+}
+
+.scaling-div {
+  animation: scaleUpDown 4s infinite;
+}
