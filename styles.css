@@ -1,3 +1,9 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 body {
   text-align: center;
   background-color: #011F3F;
@@ -39,6 +45,10 @@ body {
   border: 10px solid black;
   border-radius: 20%;
   cursor: pointer;
+  display: flex; /* This ensures children are treated as flex items */
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+  position: relative;
 }
 
 .game-over {
@@ -82,12 +92,10 @@ body {
 
 .color {
   font-family: 'Press Start 2P', cursive;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 2rem;
   color: #FDF6E3;
-  margin: 90px 0 0;
+  text-align: center;
+  position: absolute; /* To ensure the text stays on top of the button */
 }
 
 .rules {
@@ -96,20 +104,26 @@ body {
   color: #7c4a34;
   text-align: left;
   padding: 20px;
-  padding-left: 30px;
   background-color: #f9f9f9;
   border: 2px solid #7c4a34;
   border-radius: 10px;
-  width: 30%;
+  width: 90vw; /* Ensure it spans almost the full viewport width */
+  max-width: 600px; /* Optional: Limit the maximum width */
+  max-height: 50vh;
   box-sizing: border-box;
-  position: absolute;
-  top: 170px;
-  left: 535px;
-  transform: translateX(-50%);
+  position: fixed; /* Fixed positioning to ensure it's always visible */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 1000;
-  visibility: hidden;
-  transition: opacity 1.5s ease, visibility 1s ease;
+  visibility: hidden; /* Set to visible when needed */
   opacity: 0;
+  transition: opacity 1.5s ease, visibility 1s ease;
 }
 
 .rules-button {
@@ -121,7 +135,7 @@ body {
   background-color: #f9f9f9;
   border: 2px solid #7c4a34;
   border-radius: 10px;
-  width: 6%;
+  width: auto;
   box-sizing: border-box;
   cursor: pointer;
   position: absolute;
@@ -158,7 +172,7 @@ body {
     transform: scale(0.99);
   }
   50% {
-    transform: scale(1.09);
+    transform: scale(1.02);
   }
   100% {
     transform: scale(0.99);
@@ -166,5 +180,49 @@ body {
 }
 
 .scaling-div {
-  animation: scaleUpDown 4s infinite;
+  animation: scaleUpDown 2s infinite;
+}
+
+@media (min-width: 950px) and (max-width: 1200px) {
+  #level-title {
+    font-size: 2rem;
+  }
+  
+  .btn {
+    height: 18vw;
+    width: 18vw;
+  }
+  
+  .color {
+    font-size: 1.7rem;
+  }
+  
+  .rules {
+    width: 90vw;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 949px) {
+  #level-title {
+    font-size: 1.1rem;
+  }
+  
+  .btn {
+    height: 16vw;
+    width: 16vw;
+  }
+  
+  .color {
+    font-size: 1.1rem;
+  }
+  
+  .rules {
+    width: 95vw;
+    font-size: 0.8rem;
+  }
+
+  .rules-button {
+    width: auto;
+  }
 }
