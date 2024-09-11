@@ -5,7 +5,7 @@ var started = false;
 var level = 0;
 
 $(document).keypress(function(event) {
-  if (event.key === "Enter" && !started) {
+  if (!$("div.rules").hasClass("show-rules") && event.key === "Enter" && !started) {
     $("#level-title").text("Level " + level);
     nextSequence();
     $("div.rules-button").hide();
@@ -88,23 +88,25 @@ $(document).keydown(function(event) {
 
 $("div.rules-button").on("click", function() {
   if ($("div.rules").hasClass("show-rules")) {
-
+    // When rules are already showing, hide them and unblur the background
     $("div.rules").fadeOut(500, function() {
       $(this).removeClass("show-rules").addClass("blur-background");
     });
-    $("div.main-container").fadeIn(500).removeClass("blur-background");
+    $("div.main-container").removeClass("blur-background");
   } else {
-
-    $("div.main-container").fadeOut(500, function() {
-      $(this).addClass("blur-background");
+    // When rules are not showing, show them and blur the background
+    $("div.rules").fadeIn(500, function() {
+      $(this).removeClass("blur-background").addClass("show-rules");
     });
-    $("div.rules").fadeIn(500).removeClass("blur-background").addClass("show-rules");
+    $("div.main-container").addClass("blur-background");
   }
 });
 
 $("p.x-button").on("click", function() {
-  $("div.rules").fadeOut(400, function() {
+  $("div.rules").fadeOut(500, function() {
     $(this).removeClass("show-rules").addClass("blur-background");
   });
-  $("div.main-container").fadeIn(1000).removeClass("blur-background");
+  setTimeout(function() {
+    $("div.main-container").removeClass("blur-background");
+  }, 500); // Delay to match fadeOut timing
 });
