@@ -183,7 +183,7 @@ body {
   animation: scaleUpDown 2s infinite;
 }
 
-@media (min-width: 950px) and (max-width: 1200px) {
+@media (min-width: 850px) and (max-width: 1200px) {
   #level-title {
     font-size: 2rem;
   }
@@ -203,18 +203,42 @@ body {
   }
 }
 
-@media (max-width: 949px) {
+@media (min-width: 720px) and (max-width: 849px) {
   #level-title {
-    font-size: 1.1rem;
+    font-size: 2rem;
   }
   
   .btn {
-    height: 16vw;
-    width: 16vw;
+    height: 25vw;
+    width: 25vw;
   }
   
   .color {
-    font-size: 1.1rem;
+    font-size: 1.7rem;
+  }
+  
+  .rules {
+    width: 95vw;
+    font-size: 0.8rem;
+  }
+
+  .rules-button {
+    width: auto;
+  }
+}
+
+@media (max-width: 719px) {
+  #level-title {
+    font-size: 1.8rem;
+  }
+  
+  .btn {
+    height: 20vw;
+    width: 20vw;
+  }
+  
+  .color {
+    font-size: 1.2rem;
   }
   
   .rules {
