@@ -3,12 +3,29 @@ var gamePattern = [];
 var userClickedPattern = [];
 var started = false;
 var level = 0;
+var highScore = 0;
+
+$(".start-button").click(function() {
+  if (!$("div.rules").hasClass("show-rules") && !started) {
+    $("#level-title").text("Level " + level);
+    nextSequence();
+    started = true;
+  }
+});
+
+$(".restart-button").click(function() {
+  if (started && !$("div.rules").hasClass("show-rules")) {
+    startOver();
+    $("#level-title").text("Level " + level);
+    nextSequence();
+    started = true;
+  }
+});
 
 $(document).keypress(function(event) {
   if (!$("div.rules").hasClass("show-rules") && event.key === "Enter" && !started) {
     $("#level-title").text("Level " + level);
     nextSequence();
-    $("div.rules-button").hide();
     started = true;
   }
 });
@@ -59,6 +76,10 @@ function checkAnswer(currentLevel) {
     }, 200);
     $("#level-title").text("Game Over. Enter to Restart");
     $("div.rules-button").show();
+    if (level > highScore) {
+      highScore = level;
+      $("#high-score").text("High Score : " + highScore);
+    }
     startOver();
   }
 }
@@ -88,13 +109,13 @@ $(document).keydown(function(event) {
 
 $("div.rules-button").on("click", function() {
   if ($("div.rules").hasClass("show-rules")) {
-    // When rules are already showing, hide them and unblur the background
+
     $("div.rules").fadeOut(500, function() {
       $(this).removeClass("show-rules").addClass("blur-background");
     });
     $("div.main-container").removeClass("blur-background");
   } else {
-    // When rules are not showing, show them and blur the background
+
     $("div.rules").fadeIn(500, function() {
       $(this).removeClass("blur-background").addClass("show-rules");
     });
@@ -108,5 +129,5 @@ $("p.x-button").on("click", function() {
   });
   setTimeout(function() {
     $("div.main-container").removeClass("blur-background");
-  }, 500); // Delay to match fadeOut timing
+  }, 500);
 });
