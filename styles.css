@@ -11,11 +11,48 @@ body {
   padding: 0;
 }
 
-#level-title {
+.rules {
   font-family: 'Press Start 2P', cursive;
-  font-size: 3rem;
-  margin: 5% 0;
-  color: #FEF2BF;
+  font-size: 15px;
+  color: #FDF6E3;
+  text-align: left;
+  padding: 20px;
+  background-color: #002244;
+  border: 2px solid #003366;  
+  border-radius: 10px;
+  width: 90vw;
+  max-width: 600px;
+  max-height: 50vh;
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 1.5s ease, visibility 1s ease;
+}
+
+.blur-background {
+  filter: blur(15px);
+  background: rgba(240, 240, 240, 0.1);
+  transition: filter 1s ease;
+}
+
+.x-button {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.the-rules {
+  margin: 0;
 }
 
 .main-container {
@@ -25,6 +62,20 @@ body {
   justify-content: center;
   padding: 20px;
   min-height: 90vh;
+}
+
+#level-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2rem;
+  margin: 2.5% 0;
+  color: #FEF2BF;
+}
+
+#high-score {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  margin: 1% 0px 3% 0px;
+  color: #FEF2BF;
 }
 
 .container {
@@ -40,15 +91,35 @@ body {
 
 .btn {
   margin: 0;
-  height: 220px;
-  width: 220px;
+  height: 180px;
+  width: 180px;
   border: 10px solid black;
   border-radius: 20%;
   cursor: pointer;
-  display: flex; /* This ensures children are treated as flex items */
-  align-items: center; /* Vertically center the content */
-  justify-content: center; /* Horizontally center the content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
+}
+
+.button-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.left-buttons, .right-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-buttons {
+  margin-right: 20px;
+}
+
+.right-buttons {
+  margin-left: 20px;
 }
 
 .game-over {
@@ -92,161 +163,230 @@ body {
 
 .color {
   font-family: 'Press Start 2P', cursive;
-  font-size: 2rem;
+  font-size: 1rem;
   color: #FDF6E3;
   text-align: center;
-  position: absolute; /* To ensure the text stays on top of the button */
+  position: absolute;
 }
 
-.rules {
+.rules-button, .restart-button, .start-button {
   font-family: 'Press Start 2P', cursive;
-  font-size: 15px;
-  color: #7c4a34;
-  text-align: left;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 2px solid #7c4a34;
+  font-size: 10px;
+  color: #FDF6E3;
+  text-align: center;
+  padding: 10px;
+  background-color: #003366;
+  border: 2px solid #003366;
   border-radius: 10px;
-  width: 90vw; /* Ensure it spans almost the full viewport width */
-  max-width: 600px; /* Optional: Limit the maximum width */
-  max-height: 50vh;
+  width: 10vw;
   box-sizing: border-box;
-  position: fixed; /* Fixed positioning to ensure it's always visible */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  visibility: hidden; /* Set to visible when needed */
-  opacity: 0;
-  transition: opacity 1.5s ease, visibility 1s ease;
+  cursor: pointer;
+}
+
+.rules-button:hover, .restart-button:hover, .start-button:hover {
+  background-color: #00509E;
+  border-color: #00509E;
 }
 
 .rules-button {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 10px;
-  color: #7c4a34;
-  text-align: center;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border: 2px solid #7c4a34;
-  border-radius: 10px;
-  width: auto;
-  box-sizing: border-box;
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  left: 10px;
+  align-self: flex-start;
+}
+
+.restart-button {
+  align-self: center;
+}
+
+.start-button {
+  align-self: flex-end;
 }
 
 .show-rules {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 1s ease, visibility 1s ease;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s ease, visibility 1s ease;
 }
 
-.blur-background {
-    filter: blur(15px);
-    background: rgba(240, 240, 240, 0.1);
-    transition: filter 1s ease;
-}
-
-.x-button {
-  position: absolute;
-  top: 5px;
-  right: 20px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.the-rules {
-  margin-top: 35px;
-}
-
-@keyframes scaleUpDown {
-  0% {
-    transform: scale(0.99);
-  }
-  50% {
-    transform: scale(1.02);
-  }
-  100% {
-    transform: scale(0.99);
-  }
-}
-
-.scaling-div {
-  animation: scaleUpDown 2s infinite;
-}
-
-@media (min-width: 850px) and (max-width: 1200px) {
-  #level-title {
-    font-size: 2rem;
+@media (min-width: 992px) and (max-width: 1199px) {
+  
+  .main-container {
+    padding: 30px;
   }
   
   .btn {
-    height: 18vw;
-    width: 18vw;
+    height: 170px;
+    width: 170px;
   }
   
-  .color {
-    font-size: 1.7rem;
+  #level-title {
+    font-size: 1.9rem;
   }
   
-  .rules {
-    width: 90vw;
+  #high-score {
     font-size: 0.9rem;
   }
+  
+  .button-section {
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .left-buttons, .right-buttons {
+    flex-direction: row;
+    margin: 0;
+  }
+  
+  .left-buttons {
+    margin-right: 10px;
+  }
+  
+  .right-buttons {
+    margin-left: 10px;
+  }
+  
+  .rules-button, .restart-button, .start-button {
+    width: 10vw;
+  }
+
 }
 
-@media (min-width: 720px) and (max-width: 849px) {
-  #level-title {
-    font-size: 2rem;
+@media (min-width: 768px) and (max-width: 991px) {
+  
+  .main-container {
+    padding: 20px;
   }
   
   .btn {
-    height: 25vw;
-    width: 25vw;
+    height: 160px;
+    width: 160px;
   }
   
-  .color {
-    font-size: 1.7rem;
+  #level-title {
+    font-size: 1.9rem;
   }
   
-  .rules {
-    width: 95vw;
-    font-size: 0.8rem;
+  #high-score {
+    font-size: 0.9rem;
+    margin: 5%;
   }
-
-  .rules-button {
-    width: auto;
+  
+  .button-section {
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
   }
+  
+  .left-buttons, .right-buttons {
+    flex-direction: row;
+    margin: 0;
+  }
+  
+  .left-buttons {
+    margin-right: 10px;
+  }
+  
+  .right-buttons {
+    margin-left: 10px;
+  }
+  
+  .rules-button, .restart-button, .start-button {
+    width: 12vw;
+  }
+  
 }
 
-@media (max-width: 719px) {
-  #level-title {
-    font-size: 1.8rem;
+@media (min-width: 576px) and (max-width: 767px) {
+  
+  .main-container {
+    padding: 15px;
   }
   
   .btn {
-    height: 20vw;
-    width: 20vw;
+    height: 160px;
+    width: 160px;
   }
   
-  .color {
-    font-size: 1.2rem;
+  #level-title {
+    font-size: 1.9rem;
   }
   
-  .rules {
-    width: 95vw;
-    font-size: 0.8rem;
+  #high-score {
+    font-size: 0.9rem;
+    margin: 5%;
+  }
+  
+  .button-section {
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .left-buttons, .right-buttons {
+    flex-direction: row;
+    margin: 0;
+  }
+  
+  .left-buttons {
+    margin-bottom: 10px;
+  }
+  
+  .right-buttons {
+    margin-top: 10px;
+  }
+  
+  .rules-button, .restart-button, .start-button {
+    width: 16vw;
   }
 
-  .rules-button {
-    width: auto;
+}
+
+@media (max-width: 575px) {
+
+  .main-container {
+    padding: 10px;
+  }
+  
+  .btn {
+    height: 160px;
+    width: 160px;
+  }
+  
+  #level-title {
+    font-size: 1.4rem;
+  }
+  
+  #high-score {
+    font-size: 0.7rem;
+    margin: 5%;
+  }
+  
+  .button-section {
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .left-buttons, .right-buttons {
+    flex-direction: row;
+    margin: 0;
+  }
+  
+  .left-buttons {
+    margin-bottom: 5px;
+  }
+  
+  .right-buttons {
+    margin-top: 5px;
+  }
+  
+  .rules-button, .restart-button, .start-button {
+    width: 18vw;
+  }
+
+  .rules {
+    font-size: 12px;
+    width: 95vw;
+    max-width: none;
+    max-height: 70vh;
   }
 }
