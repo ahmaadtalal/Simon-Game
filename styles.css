@@ -21,7 +21,7 @@ body {
   border: 2px solid #003366;  
   border-radius: 10px;
   width: 90vw;
-  max-width: 600px;
+  max-width: 800px;
   max-height: 50vh;
   box-sizing: border-box;
   position: fixed;
@@ -47,7 +47,7 @@ body {
   position: absolute;
   top: 5px;
   right: 20px;
-  font-size: 20px;
+  font-size: 30px;
   cursor: pointer;
 }
 
@@ -253,27 +253,28 @@ body {
 @media (min-width: 768px) and (max-width: 991px) {
   
   .main-container {
-    padding: 20px;
+    padding: 10px;
   }
   
   .btn {
-    height: 160px;
-    width: 160px;
+    height: 250px;
+    width: 250px;
   }
   
   #level-title {
-    font-size: 1.9rem;
+    font-size: 2.5rem;
   }
   
   #high-score {
-    font-size: 0.9rem;
-    margin: 5%;
+    font-size: 1.4rem;
+    margin: 10%;
   }
   
   .button-section {
     flex-direction: row;
     align-items: center;
     gap: 15px;
+    margin-top: 10%;
   }
   
   .left-buttons, .right-buttons {
@@ -290,80 +291,45 @@ body {
   }
   
   .rules-button, .restart-button, .start-button {
-    width: 12vw;
+    width: 18vw;
+    font-size: 1.3rem;
+  }
+
+  .color {
+    font-size: 2rem;
+  }
+
+  .rules {
+    font-size: 1.8rem;
   }
   
 }
 
-@media (min-width: 576px) and (max-width: 767px) {
+@media (max-width: 767px) {
   
-  .main-container {
-    padding: 15px;
-  }
-  
-  .btn {
-    height: 160px;
-    width: 160px;
-  }
-  
-  #level-title {
-    font-size: 1.9rem;
-  }
-  
-  #high-score {
-    font-size: 0.9rem;
-    margin: 5%;
-  }
-  
-  .button-section {
-    flex-direction: row;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  .left-buttons, .right-buttons {
-    flex-direction: row;
-    margin: 0;
-  }
-  
-  .left-buttons {
-    margin-bottom: 10px;
-  }
-  
-  .right-buttons {
-    margin-top: 10px;
-  }
-  
-  .rules-button, .restart-button, .start-button {
-    width: 16vw;
-  }
-
-}
-
-@media (max-width: 575px) {
-
   .main-container {
     padding: 10px;
   }
   
   .btn {
-    height: 160px;
-    width: 160px;
+    height: 220px;
+    width: 220px;
   }
   
   #level-title {
-    font-size: 1.4rem;
+    font-size: 2.2rem;
   }
   
   #high-score {
-    font-size: 0.7rem;
-    margin: 5%;
+    font-size: 1.1rem;
+    margin: 7%;
   }
   
   .button-section {
     flex-direction: row;
     align-items: center;
     gap: 15px;
+    margin-top: 8%;
   }
   
   .left-buttons, .right-buttons {
@@ -372,21 +338,24 @@ body {
   }
   
   .left-buttons {
-    margin-bottom: 5px;
+    margin-right: 10px;
   }
   
   .right-buttons {
-    margin-top: 5px;
+    margin-left: 10px;
   }
   
   .rules-button, .restart-button, .start-button {
-    width: 18vw;
+    width: 16vw;
+    font-size: 1.2rem;
+  }
+
+  .color {
+    font-size: 1.7rem;
   }
 
   .rules {
-    font-size: 12px;
-    width: 95vw;
-    max-width: none;
-    max-height: 70vh;
+    font-size: 1.8rem;
   }
+
 }
